@@ -137,7 +137,7 @@ const translations = {
 };
 
 function App() {
-  const [lang, setLang] = useState('en');
+  const [lang, setLang] = useState<'en' | 'es'>('en');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -209,25 +209,25 @@ function App() {
         <div className="container">
           <div className="text-center mb-4">
             <h2>{t('services.title')}</h2>
-            <p style={{fontSize: '1.125rem', color: 'var(--text-gray)'}}>{t('services.subtitle')}</p>
+            <p style={{ fontSize: '1.125rem', color: 'var(--text-gray)' }}>{t('services.subtitle')}</p>
           </div>
           <div className="grid grid-4">
-            <ServiceCard 
+            <ServiceCard
               icon={<Workflow size={32} />}
               title={t('services.workflow.title')}
               description={t('services.workflow.desc')}
             />
-            <ServiceCard 
+            <ServiceCard
               icon={<Bot size={32} />}
               title={t('services.ai.title')}
               description={t('services.ai.desc')}
             />
-            <ServiceCard 
+            <ServiceCard
               icon={<BarChart3 size={32} />}
               title={t('services.crm.title')}
               description={t('services.crm.desc')}
             />
-            <ServiceCard 
+            <ServiceCard
               icon={<Mail size={32} />}
               title={t('services.marketing.title')}
               description={t('services.marketing.desc')}
@@ -239,10 +239,10 @@ function App() {
       {/* About Section */}
       <section id="about" className="section">
         <div className="container">
-          <div className="grid grid-2" style={{alignItems: 'center'}}>
+          <div className="grid grid-2" style={{ alignItems: 'center' }}>
             <div>
               <h2>{t('about.title')}</h2>
-              <p style={{fontSize: '1.125rem', marginBottom: '2rem'}}>{t('about.description')}</p>
+              <p style={{ fontSize: '1.125rem', marginBottom: '2rem' }}>{t('about.description')}</p>
               <ul className="feature-list">
                 <li className="feature-item">
                   <CheckCircle size={24} className="feature-icon" />
@@ -259,10 +259,10 @@ function App() {
               </ul>
             </div>
             <div>
-              <img 
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop" 
+              <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=400&fit=crop"
                 alt="Team collaboration"
-                style={{width: '100%', borderRadius: '1rem', boxShadow: 'var(--shadow-xl)'}}
+                style={{ width: '100%', borderRadius: '1rem', boxShadow: 'var(--shadow-xl)' }}
               />
             </div>
           </div>
@@ -288,40 +288,40 @@ function App() {
 
       {/* Contact Section */}
       <section id="contact" className="section">
-        <div className="container" style={{maxWidth: '700px'}}>
+        <div className="container" style={{ maxWidth: '700px' }}>
           <div className="text-center mb-4">
             <h2>{t('contact.title')}</h2>
-            <p style={{fontSize: '1.125rem'}}>{t('contact.description')}</p>
+            <p style={{ fontSize: '1.125rem' }}>{t('contact.description')}</p>
           </div>
           <div className="card">
             <form onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-2">
                 <div className="form-group">
                   <label className="form-label">{t('contact.nameLabel')}</label>
-                  <input 
-                    type="text" 
-                    className="form-input" 
+                  <input
+                    type="text"
+                    className="form-input"
                     placeholder={t('contact.namePlaceholder')}
                   />
                 </div>
                 <div className="form-group">
                   <label className="form-label">{t('contact.emailLabel')}</label>
-                  <input 
-                    type="email" 
-                    className="form-input" 
+                  <input
+                    type="email"
+                    className="form-input"
                     placeholder={t('contact.emailPlaceholder')}
                   />
                 </div>
               </div>
               <div className="form-group">
                 <label className="form-label">{t('contact.messageLabel')}</label>
-                <textarea 
-                  className="form-textarea" 
+                <textarea
+                  className="form-textarea"
                   rows={5}
                   placeholder={t('contact.messagePlaceholder')}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary" style={{width: '100%'}}>
+              <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
                 {t('contact.submit')}
               </button>
             </form>
