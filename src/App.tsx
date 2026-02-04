@@ -187,6 +187,38 @@ function App() {
         </div>
       </nav>
 
+      {/* Mobile Menu Backdrop */}
+      <div
+        className={`mobile-menu-backdrop ${mobileMenuOpen ? 'active' : ''}`}
+        onClick={() => setMobileMenuOpen(false)}
+      ></div>
+
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${mobileMenuOpen ? 'active' : ''}`}>
+        <div className="mobile-menu-header">
+          <span className="nav-name">AITANE</span>
+          <button className="mobile-menu-close" onClick={() => setMobileMenuOpen(false)}>
+            <X size={24} />
+          </button>
+        </div>
+        <ul className="mobile-menu-links">
+          <li><a href="#services" onClick={() => setMobileMenuOpen(false)}>{t('nav.services')}</a></li>
+          <li><a href="#about" onClick={() => setMobileMenuOpen(false)}>{t('nav.about')}</a></li>
+          <li><a href="#contact" onClick={() => setMobileMenuOpen(false)}>{t('nav.contact')}</a></li>
+        </ul>
+        <div className="mobile-menu-lang">
+          <button onClick={toggleLang} className="lang-toggle">
+            <Globe size={18} />
+            <span>{lang.toUpperCase()}</span>
+          </button>
+        </div>
+        <div className="mobile-menu-cta">
+          <a href="#contact" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>
+            {t('nav.getStarted')}
+          </a>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="hero section">
         <div className="container">
