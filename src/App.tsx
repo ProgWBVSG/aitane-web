@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
-  Bot, ArrowRight, CheckCircle, Globe,
+  Bot, ArrowRight, CheckCircle,
   Menu, X, Network, Code2, Search, Zap
 } from 'lucide-react';
 
@@ -476,18 +476,15 @@ const translations = {
    APP
    ============================================================ */
 function App() {
-  const [lang, setLang] = useState<'en' | 'es'>('es');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const t = (key: string): string => {
     const keys = key.split('.');
-    let value: any = translations[lang];
+    let value: any = translations.es;
     for (const k of keys) value = value?.[k];
     return value ?? '';
   };
-
-  const toggleLang = () => setLang(lang === 'en' ? 'es' : 'en');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -518,12 +515,6 @@ function App() {
             <li><a href="#services"  className="nav-link">{t('nav.aiAuto')}</a></li>
             <li><a href="#services"  className="nav-link">{t('nav.seo')}</a></li>
             <li><a href="#about"     className="nav-link">{t('nav.projects')}</a></li>
-            <li>
-              <button onClick={toggleLang} className="lang-toggle">
-                <Globe size={14} />
-                <span>{lang.toUpperCase()}</span>
-              </button>
-            </li>
             <li>
               <a href="#contact" className="btn btn-nav">
                 {t('nav.cta')}
@@ -558,12 +549,6 @@ function App() {
           <li><a href="#services" onClick={closeMobile}>{t('nav.seo')}</a></li>
           <li><a href="#about"    onClick={closeMobile}>{t('nav.projects')}</a></li>
         </ul>
-        <div className="mobile-menu-lang">
-          <button onClick={toggleLang} className="lang-toggle">
-            <Globe size={14} />
-            <span>{lang.toUpperCase()}</span>
-          </button>
-        </div>
         <div className="mobile-menu-cta">
           <a href="#contact" className="btn btn-primary" onClick={closeMobile}>
             {t('nav.cta')}
